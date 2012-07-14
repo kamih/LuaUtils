@@ -1,0 +1,9 @@
+LuaUtils is a little library I have been developing that wraps Lua functionality into C++ Classes, to avoid having to deal with the Lua state and stack directly.
+
+It provides the following classes:
+
+LuaState – a class that allows you to load Lua code, set and get global values
+LuaTable – a class that allows you to get and set values in a Lua table
+LuaFunction – a class that allows you to easily call Lua functions from your C++ code
+LuaStateCFunc – an extended version of LuaState that provides special functions to be used in Lua C functions
+LuaTableCFunc – an extended version of LuaTable that provides special functions to be used in Lua C functions
