@@ -61,6 +61,7 @@ void _LuaLogError(const char *format, ...)
 //
 void _LuaBase::luaPushValue(const std::string &s) const			{ lua_pushstring(mL.get(), s.c_str()); }
 void _LuaBase::luaPushValue(int n) const						{ lua_pushinteger(mL.get(), (lua_Integer)n); }
+void _LuaBase::luaPushValue(unsigned char n) const				{ lua_pushinteger(mL.get(), (lua_Integer)n); }
 void _LuaBase::luaPushValue(double n)	const					{ lua_pushnumber(mL.get(), n); }
 void _LuaBase::luaPushValue(float n) const						{ lua_pushnumber(mL.get(), (double)n); }
 void _LuaBase::luaPushValue(bool b) const						{ lua_pushboolean(mL.get(), b); }
@@ -78,6 +79,17 @@ bool _LuaBase::luaPopValue(int &res) const
 	if (lua_isnumber(mL.get(), -1))
 	{
 		res = (int)lua_tointeger(mL.get(), -1);
+		ret = true;
+	}
+	lua_pop(mL.get(), 1);
+	return ret;
+}
+bool _LuaBase::luaPopValue(unsigned char &res) const
+{
+	bool ret = false;
+	if (lua_isnumber(mL.get(), -1))
+	{
+		res = (unsigned char)lua_tointeger(mL.get(), -1);
 		ret = true;
 	}
 	lua_pop(mL.get(), 1);

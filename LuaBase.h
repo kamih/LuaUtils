@@ -61,6 +61,7 @@ protected:
 	// Helper push functions
 	void luaPushValue(lua_CFunction f) const;
 	void luaPushValue(int n) const;
+	void luaPushValue(unsigned char n) const;
 	void luaPushValue(double n) const;
 	void luaPushValue(float n) const;
 	void luaPushValue(bool b) const;
@@ -72,6 +73,7 @@ protected:
 	// Helper pop functions
 	bool luaPopValue(lua_CFunction &res) const;
 	bool luaPopValue(int &res) const;
+	bool luaPopValue(unsigned char &res) const;
 	bool luaPopValue(double &res) const;
 	bool luaPopValue(float &res) const;
 	bool luaPopValue(bool &res) const;
